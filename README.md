@@ -1,5 +1,5 @@
 # Federated-Search-Documentation
-More detailed documentation for https://github.com/nein09/polder-federated-search
+More detailed documentation for the [POLDER Federated Search web app] (https://github.com/nein09/polder-federated-search)
 
 # Development and building
 This documentation is built using [`jupyter-book`](https://jupyterbook.org). To build it as an HTML site and /or PDF:
