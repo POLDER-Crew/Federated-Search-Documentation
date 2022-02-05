@@ -41,7 +41,7 @@ jobs:
         with:
           # Git branch where assets will be deployed
           target_branch: gh-pages
-          build_dir: book/_build/
+          build_dir: book/_build/html/
           # If enabled, the content of symbolic links will be copied
           follow_symlinks: # optional, default is false
           # The committer name and email address
