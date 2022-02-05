@@ -42,8 +42,6 @@ jobs:
           # Git branch where assets will be deployed
           target_branch: gh-pages
           build_dir: book/_build/html/
-          # If enabled, the content of symbolic links will be copied
-          follow_symlinks: true
           jekyll: false
           # If enabled, nothing will be pushed. optional, default is false
           dry_run: false
