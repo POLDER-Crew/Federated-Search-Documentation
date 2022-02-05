@@ -36,6 +36,8 @@ jobs:
         run: jupyter-book build book
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.6.0
+        env:
+          $GITHUB_TOKEN: $GITHUB_TOKEN
         with:
           # Git branch where assets will be deployed
           target_branch: gh-pages
