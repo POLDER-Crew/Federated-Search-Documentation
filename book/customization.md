@@ -81,4 +81,4 @@ Once you've made your class, you can include it in the code that kicks off searc
 ### User Interface
 Aside from editing verbiage in templates, you might want to customize styles and colors. The [SCSS constants](https://github.com/nein09/polder-federated-search/blob/main/app/static/css/_constants.scss) are a great place to start experimenting with that. Don't forget to assess your color choices for [sufficient contrast](https://contrastchecker.com/) so that people with vision impairments can still use the app.
 
-Note that the UI offers a no-js experience for searchers on slow internet connections.
+Note that the UI offers a no-js experience for searchers on slow internet connections. It's easy to over look the templates and pages associated with that, but those will also need to be updated and tested.
