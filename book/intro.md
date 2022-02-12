@@ -3,7 +3,7 @@
 A customizable federated search website, originally created for the polar research community. The intentions behind creating it are to have something that came from, and is meant to serve, an international community of polar (Arctic and Antarctic) researchers. We hope to build an easy to use, fast, accessible site that is tailored to this specific community and responds to its needs.
 
 ## Where can I use it?
-Try out the latest version on the POLDER website: [http://search-dev.polder.info/polder/](http://search-dev.polder.info/polder/)
+Try out the latest version on the POLDER website: [https://search-dev.polder.info](https://search-dev.polder.info)
 
 ## Whose data is included in it?
 There are three ways for your data repository to be included in the POLDER Federated Search:
@@ -21,7 +21,7 @@ The POLDER Federated Search website is a web application that consists of severa
 ![architecture-diagram](images/architecture-diagram.jpeg)
 
 ### The User Interface
-Pictured in green on the diagram above, this is the website that people interact with in order to make searches and see search results. This is built in HTML, JavaScript and SCSS, using [Parcel](https://parceljs.org/).
+Pictured in green on the diagram above, this is the website that people interact with in order to make searches and see search results. This is built in HTML, JavaScript and SCSS, using [Parcel](https://parceljs.org/). It has been tested for compliance with [WCAG standards](https://www.w3.org/WAI/standards-guidelines/wcag/) and usability with screen readers, browsers that do not support JavaScript, and mobile devices.
 
 ### Searches
 A federated search is something that searches multiple indexes of data in order to collate and present results to people who want to find them. Accordingly, this site harvests metadata from several data repositories in order to search for datasets (represented by the light blue shapes in the diagram). It also sends search requests directly to DataONE, which does its own indexing (represented by the dark blue shapes in the diagram).

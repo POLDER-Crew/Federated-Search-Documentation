@@ -71,6 +71,14 @@ To index other repositories, you are interested in the *sources* section of that
 - `active`: Whether to index this repository, or just keep the setting there for future use
 
 ### Searching
+Currently, the POLDER Federated Search App supports making queries against its own [BlazeGraph](https://github.com/nein09/polder-federated-search/blob/main/app/search/gleaner.py) instance (which is where all the data you indexed goes) and [DataONE](https://github.com/nein09/polder-federated-search/blob/main/app/search/dataone.py). Note that because this is an app focused on polar data searches, it includes a [latitude filter](https://github.com/nein09/polder-federated-search/blob/main/app/search/dataone.py#L13) for the DataONE query, as a very basic way of filtering out irrelevant results. You could change that filter, or leave it out entirely.
 
 #### Implementing your own search class
+If you're querying a source other than BlazeGraph or DataONE, you'll need to add a search class to do that, and to fetch results. It should be derived from the [search base class](https://github.com/nein09/polder-federated-search/blob/main/app/search/search.py#L126). That class outlines the basic methods that a search class has to include in order to provide results to the search app; it has to be able to make queries that the app supports, and pass back results that are formatted in the way that the app expects. The [search tests](https://github.com/nein09/polder-federated-search/tree/main/app/tests/search) are a good place to look and see how such a class might be expected to operate - and if you write your own class, adding tests is always a good idea!
 
+Once you've made your class, you can include it in the code that kicks off searches and displays results to users [here](https://github.com/nein09/polder-federated-search/blob/main/app/routes.py#L29).
+
+### User Interface
+Aside from editing verbiage in templates, you might want to customize styles and colors. The [SCSS constants](https://github.com/nein09/polder-federated-search/blob/main/app/static/css/_constants.scss) are a great place to start experimenting with that. Don't forget to assess your color choices for [sufficient contrast](https://contrastchecker.com/) so that people with vision impairments can still use the app.
+
+Note that the UI offers a no-js experience for searchers on slow internet connections. It's easy to over look the templates and pages associated with that, but those will also need to be updated and tested.
