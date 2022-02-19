@@ -3,7 +3,7 @@
 
 In order for a data repository to be included in the POLDER Federated Search, the indexer has to know where its data sets are and be able to retrieve some metadata about them. The Federated Search App takes in [JSON-LD](https://json-ld.org/) metadata in order to make data sets searchable via its interface.
 
-Broadly, if your data repository follows the POLDER Schema.org Best Practices (soon to be released), it will be a good fit for being included in the POLDER Federated Search. The POLDER Best Practices are summarized below.
+Broadly, if your data repository follows the [POLDER Schema.org Best Practices](https://docs.google.com/document/d/1r4OSRuVBfdJpMbyhjkhghHSeckraFEhxs0f1ld4aGkg) (note: this document is still in progress), it will be a good fit for being included in the POLDER Federated Search. These Best Practices are based on see [science-on-schema.org guidelines](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md), and are summarized below.
 
 ## Metadata Fields
 
