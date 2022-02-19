@@ -1,13 +1,13 @@
 (inclusion-guidelines)=
-# Including Your Repository
+# Including A Repository
 
-In order for your data repository to be included in the POLDER Federated Search, the indexer has to know where your data sets are and get some metadata about them. The Federated Search App takes in [JSON-LD](https://json-ld.org/) metadata in order to make data sets searchable.
+In order for a data repository to be included in the POLDER Federated Search, the indexer has to know where its data sets are and be able to retrieve some metadata about them. The Federated Search App takes in [JSON-LD](https://json-ld.org/) metadata in order to make data sets searchable via its interface.
 
 Broadly, if your data repository follows the POLDER Schema.org Best Practices (soon to be released), it will be a good fit for being included in the POLDER Federated Search. The POLDER Best Practices are summarized below.
 
 ## Metadata Fields
 
-Most of the work in getting a repository ready to be included in the POLDER Federated Search is in getting its metadata to a state where the app can consume it and use it in searches. A good thing to remember is that in order to search on a field, that field has to exist - so if you want people to be able to get your data set using, say, a date search, you have to attache temporal coverage information to it.
+Most of the work in getting a repository ready to be included in the POLDER Federated Search is in getting its metadata to a state where the app can consume it and use it in searches. A good thing to remember is that in order to search on a field, that field has to exist - so if you want people to be able to find your data set using, say, a date search, you have to attach temporal coverage information to it.
 
 ### Required Metadata Fields
 - [Identifier](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#identifier)
@@ -24,15 +24,15 @@ Most of the work in getting a repository ready to be included in the POLDER Fede
 
 ### Optional Metadata Fields
 
-- [SameAs](https://schema.org/sameAs), especially if you're a person who doesn't like to see duplicate search results.
+- [SameAs](https://schema.org/sameAs); if you're a person who doesn't like to see duplicate search results, this is for you!
 - [Keywords](https://schema.org/keywords) are helpful for people doing text searches.
-- [Version](https://schema.org/version) in the future, this can be used to display only the most current version of a dataset. See also: [SoSo's provenance relationships guidelines](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#provenance-relationships).
+- [Version](https://schema.org/version) is not being used right now, but in the future, this can be used to display only the most current version of a dataset. See also: [SoSo's provenance relationships guidelines](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#provenance-relationships).
 - Date Published
-- [Distribution (i.e., how to get data)](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#distributions)
+- [Distribution (i.e., how to get data)](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#distributions) is good for if you have a way to get the data that doesn't just involve going to the data set's landing page (i.e. the sitemap url that was indexed in order to get this data set's metadata)
 
 ## Other Requirements
 
-Your metadata catalog should provide a [sitemap](https://github.com/ESIPFed/science-on-schema.org/blob/feature_192_sitemaps/guides/GETTING-STARTED.md#sitemaps) so that harvesters know which pages to get information from.
+Your metadata catalog should provide a [sitemap](https://github.com/ESIPFed/science-on-schema.org/blob/feature_192_sitemaps/guides/GETTING-STARTED.md#sitemaps) so that harvesters like Gleaner can know which pages to get information from.
 
 ## Things that are nice to have
 
