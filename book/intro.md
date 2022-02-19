@@ -10,7 +10,7 @@ There are three ways for your data repository to be included in the POLDER Feder
 
 1. If your data is being indexed by [DataONE](https://www.dataone.org/), you're in! POLDER Federated Search automatically searches DataONE's index.
 
-1. If you're able to follow the [science-on-schema.org guidelines](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md) (or soon to come POLDER schema.org best practices) for your dataset metadata, all you have to do is provide us with a sitemap link so that POLDER Federated Search can harvest your metadata.
+1. If you're able to add JSON-LD metadata to your data sets and follow the POLDER schema.org best practices (in progress and coming soon - see [science-on-schema.org guidelines](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md) for now) for your dataset metadata, all you have to do is provide us with a sitemap link so that POLDER Federated Search can harvest your metadata. [Read more](inclusion-guidelines) about what this involves.
 
 1. If you or your team don’t have the capacity to complete the schema.org mark-up we can add you to the list of repositories to receive one-on-one development help from us so that we can help you meet the schema.org guidelines and get your data included
 

@@ -1,6 +1,6 @@
 format: jb-book
 root: intro
 chapters:
+- file: inclusion-guidelines
 - file: customization
 - file: more-info
-# - file: markdown-notebooks
