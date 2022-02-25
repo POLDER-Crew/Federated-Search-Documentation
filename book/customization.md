@@ -4,6 +4,9 @@
 
 This app can serve as a template for making your own federated search application. If you want to crawl a set of data repositories and/or query DataONE for results, this might help you get started. You'll want to modify some areas of the code, though, and this chapter is about where to do that.
 
+### General development, building and running
+For the nuts and bolts of setting up a development environment, see the [Github README](https://github.com/nein09/polder-federated-search#development).
+
 ### Indexing
 Data repositories that are indexed by the Polder Federated Search app are listed in the configuration files for [Gleaner](https://gleaner.io/), which is what is actually doing the indexing here. These files are in two places, because there are two ways to deploy the federated search- with Docker, and with Helm. The Docker config file is [here](https://github.com/nein09/polder-federated-search/blob/main/docker/gleaner.yaml), and the Helm config file is [here](https://github.com/nein09/polder-federated-search/blob/main/helm/templates/gleaner-config.yaml).
 
@@ -78,7 +81,11 @@ If you're querying a source other than BlazeGraph or DataONE, you'll need to add
 
 Once you've made your class, you can include it in the code that kicks off searches and displays results to users [here](https://github.com/nein09/polder-federated-search/blob/main/app/routes.py#L29).
 
+
 ### User Interface
 Aside from editing verbiage in templates, you might want to customize styles and colors. The [SCSS constants](https://github.com/nein09/polder-federated-search/blob/main/app/static/css/_constants.scss) are a great place to start experimenting with that. Don't forget to assess your color choices for [sufficient contrast](https://contrastchecker.com/) so that people with vision impairments can still use the app.
 
-Note that the UI offers a no-js experience for searchers on slow internet connections. It's easy to over look the templates and pages associated with that, but those will also need to be updated and tested.
+Note that the UI offers a no-JavaScript experience for searchers on slow internet connections. It's easy to overlook the templates and pages associated with that, but those will also need to be updated and tested.
+
+### Deployment
+You're going to want to run this somewhere! The best place to read about deployment for this app is in the [GitHub README](https://github.com/nein09/polder-federated-search#deployment).
