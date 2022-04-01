@@ -66,11 +66,11 @@ sources:
 To index other repositories, you are interested in the *sources* section of that configuration file. Each entry there is one data repository to crawl; here's what the attributes here mean:
 
 - `name`: Your shorthand name for this data repository
-- `url`: The URL for something that tells you where to find all the data sets; in this case, it's a sitemap. TODO: what else could this be?
+- `url`: The URL for something that tells you where to find all the data sets; in this case, it's a sitemap. It can also be the url for the `robots.txt` file on that domain, if that file points to a sitemap. You can also use things like a csv, a Google Drive, or a JSON sitegraph.
 - `headless`: Whether or not to index it by rendering the page with a headless browser. This is significantly slower than indexing it by fetching the page and parsing the JSON-LD out of it. The reason you may want to use headless indexing is that many data repositories inject the metadata for a data set *after* its landing page loads, which means that just doing an HTTP `GET` will not get you metadata.
 - `properName`: The full name for this data repository
 - `domain`: The top-level domain for this data repository
-- `type`: The type of thing that `url` is pointing to
+- `type`: The type of thing that `url` is pointing to, like `sitemap` or `robots`
 - `active`: Whether to index this repository, or just keep the setting there for future use
 
 ### Searching
