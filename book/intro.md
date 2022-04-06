@@ -3,7 +3,7 @@
 A customizable federated search website, originally created for the polar research community. The intentions behind creating it are to have something that came from, and is meant to serve, an international community of polar (Arctic and Antarctic) researchers. We hope to build an easy to use, fast, accessible site that is tailored to this specific community and responds to its needs.
 
 ## Where can I use it?
-Try out the latest version on the POLDER website: [https://search-dev.polder.info](https://search-dev.polder.info)
+Try out the latest release on the POLDER website: [https://search.polder.info](https://search.polder.info).
 
 ## Whose data is included in it?
 There are three ways for your data repository to be included in the POLDER Federated Search:
