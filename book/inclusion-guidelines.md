@@ -32,7 +32,7 @@ Most of the work in getting a repository ready to be included in the POLDER Fede
 
 ## Other Requirements
 
-Your metadata catalog should provide a [sitemap](https://github.com/ESIPFed/science-on-schema.org/blob/feature_192_sitemaps/guides/GETTING-STARTED.md#sitemaps) so that harvesters like Gleaner can know which pages to get information from.
+Your metadata catalog should provide a [sitemap](https://github.com/ESIPFed/science-on-schema.org/blob/feature_192_sitemaps/guides/GETTING-STARTED.md#sitemaps) so that harvesters like Gleaner can know which pages to get information from. Or, if you have a robots.txt file that includes a list of sitemaps, that could work too.
 
 ## Things that are nice to have
 
