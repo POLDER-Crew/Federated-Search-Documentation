@@ -6,9 +6,11 @@ A customizable federated search website, originally created for the polar resear
 Try out the latest release on the POLDER website: [https://search.polder.info](https://search.polder.info).
 
 ## Whose data is included in it?
-There are three ways for your data repository to be included in the POLDER Federated Search:
+There are four ways for your data repository to be included in the POLDER Federated Search:
 
 1. If your data is being indexed by [DataONE](https://www.dataone.org/), you're in! POLDER Federated Search automatically searches DataONE's index.
+
+1. If your data is included in the [NASA Global Change Master Directory's Common Metadata Repository](https://cmr.earthdata.nasa.gov/search), we can index it easily, given your data center ID. Please get in touch with us, so we can add you.
 
 1. If you're able to add JSON-LD metadata to your data sets and follow the [POLDER schema.org best practices](https://docs.google.com/document/d/1r4OSRuVBfdJpMbyhjkhghHSeckraFEhxs0f1ld4aGkg) (note: this document is still in progress) for your dataset metadata, all you have to do is provide us with a sitemap link so that POLDER Federated Search can harvest your metadata. [Read more](inclusion-guidelines) about what this involves.
 
