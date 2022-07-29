@@ -87,5 +87,10 @@ Aside from editing verbiage in templates, you might want to customize styles and
 
 Note that the UI offers a no-JavaScript experience for searchers on slow internet connections. It's easy to overlook the templates and pages associated with that, but those will also need to be updated and tested.
 
+#### Maps
+One big part of the UI is a map to show the dataset search results, which is built in [OpenLayers](https://openlayers.org/). Since the POLDER Federated Search App is meant for polar research data, it uses polar projections of the Arctic and Antarctic to display search results. Unless you're building another polar app, it's highly unlikely that you want this particular functionality. Quite a bit of the [map code](https://github.com/nein09/polder-federated-search/blob/main/app/static/js/map.js) is doing the work of building polar-projected views and making the one for Antarctica in particular a useful map that looks nice. There's also twice as much of it as you may want, because there are two maps - so if you only want one map, in the default projection on the web, don't panic if you find yourself itching to delete a bunch of stuff. We've tried to leave comments telling you which parts you are and aren't likely to need.
+
+You may also want to read the [README](https://github.com/nein09/polder-federated-search/blob/main/app/static/maps/README.md) in the `static/maps` directory, about map styles and place names in particular, especially if you want to customize a tileset.
+
 ### Deployment
 You're going to want to run this somewhere! The best place to read about deployment for this app is in the [GitHub README](https://github.com/nein09/polder-federated-search#deployment).
