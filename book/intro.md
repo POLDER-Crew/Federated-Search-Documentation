@@ -1,6 +1,6 @@
 # POLDER Federated Search
 
-A customizable federated search website, originally created for the polar research community. The intentions behind creating it are to have something that came from, and is meant to serve, an international community of polar (Arctic and Antarctic) researchers. We hope to build an easy to use, fast, accessible site that is tailored to this specific community and responds to its needs.
+A customizable federated search website, originally created for the polar research community. The POLDER Federated Search was originally developed by the World Data System International Technology Office (https://wds-ito.org/) between 2021-2023 in response to needs identified by the POLDER Working Group (http://polder.info). The intentions behind creating it are to have something that came from, and is meant to serve, an international community of polar (Arctic and Antarctic) researchers. We hope to build an easy to use, fast, accessible site that is tailored to this specific community and responds to its needs.
 
 ## Where can I use it?
 Try out the latest release on the POLDER website: [https://search.polder.info](https://search.polder.info).
