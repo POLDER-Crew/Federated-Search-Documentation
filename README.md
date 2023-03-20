@@ -1,5 +1,5 @@
 # Federated-Search-Documentation
-More detailed documentation for the [POLDER Federated Search web app] (https://github.com/WDS-ITO/polder-federated-search)
+More detailed documentation for the [POLDER Federated Search web app] (https://github.com/POLDER-Crew/polder-federated-search)
 
 # Development and building
 This documentation is built using [`jupyter-book`](https://jupyterbook.org).  It gets built automatically and deployed to Github Pages when changes are merged to `main` in this repository, and you can see it [here](https://polder-crew.github.io/Federated-Search-Documentation)
