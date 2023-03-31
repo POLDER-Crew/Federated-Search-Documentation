@@ -1,0 +1,806 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using Blazegraph as your triplestore &#8212; POLDER Federated Search Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Endpoints" href="api.html" />
+    <link rel="prev" title="References" href="more-info.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">POLDER Federated Search Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   POLDER Federated Search
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="inclusion-guidelines.html">
+   Including A Repository
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="customization.html">
+   Customization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="more-info.html">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Using Blazegraph as your triplestore
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Endpoints
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/blazegraph.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/POLDER-Crew/Federated-Search-Documentation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/POLDER-Crew/Federated-Search-Documentation/issues/new?title=Issue%20on%20page%20%2Fblazegraph.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-to-the-search-code">
+   Changes to the search code
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#post-versus-get">
+     POST versus GET
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sparql-query">
+     SPARQL query
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#full-text-search-ranking">
+     Full-text search ranking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-to-docker-compose-and-helm-charts">
+   Changes to docker-compose and Helm charts
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-docker-with-blazegraph">
+     Setting up Docker with Blazegraph
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differences-in-docker-compose-yaml">
+   Differences in docker-compose.yaml
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#triplestore-setup">
+     triplestore-setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#triplestore">
+     triplestore
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-scripts">
+     Docker scripts
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#write-to-triplestore">
+       write-to-triplestore
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#clear-triplestore">
+       clear-triplestore
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#helm">
+   Helm
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#writing-to-the-triplestore">
+     Writing to the triplestore
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clearing-the-triplestore">
+     Clearing the triplestore
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-the-triplestore">
+     Setting up the triplestore
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Using Blazegraph as your triplestore</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-to-the-search-code">
+   Changes to the search code
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#post-versus-get">
+     POST versus GET
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sparql-query">
+     SPARQL query
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#full-text-search-ranking">
+     Full-text search ranking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-to-docker-compose-and-helm-charts">
+   Changes to docker-compose and Helm charts
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-docker-with-blazegraph">
+     Setting up Docker with Blazegraph
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differences-in-docker-compose-yaml">
+   Differences in docker-compose.yaml
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#triplestore-setup">
+     triplestore-setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#triplestore">
+     triplestore
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-scripts">
+     Docker scripts
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#write-to-triplestore">
+       write-to-triplestore
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#clear-triplestore">
+       clear-triplestore
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#helm">
+   Helm
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#writing-to-the-triplestore">
+     Writing to the triplestore
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clearing-the-triplestore">
+     Clearing the triplestore
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-the-triplestore">
+     Setting up the triplestore
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="using-blazegraph-as-your-triplestore">
+<h1>Using Blazegraph as your triplestore<a class="headerlink" href="#using-blazegraph-as-your-triplestore" title="Permalink to this headline">¶</a></h1>
+<p>This project originally used Blazegraph instead of GraphDB. We changed because we wanted GraphDB’s GeoSPARQL support and nice development console - but GraphDB is not open source, although a free version is available. If you wish to build a project that only has open-source software in it, you can use Blazegraph instead.</p>
+<div class="section" id="changes-to-the-search-code">
+<h2>Changes to the search code<a class="headerlink" href="#changes-to-the-search-code" title="Permalink to this headline">¶</a></h2>
+<p>The differences between BlazeGraph and GraphDB necessitate some changes to the Python code in the web app. The first section is the most important. Please note that tests will need to be changed accordingly, as well.</p>
+<div class="section" id="post-versus-get">
+<h3>POST versus GET<a class="headerlink" href="#post-versus-get" title="Permalink to this headline">¶</a></h3>
+<p>BlazeGraph allows large queries to be sent via a <code class="docutils literal notranslate"><span class="pre">GET</span></code>, so calling <code class="docutils literal notranslate"><span class="pre">self.sparql.setMethod(POST)</span></code> in <code class="docutils literal notranslate"><span class="pre">app/search/gleaner.py</span></code> is optional.</p>
+</div>
+<div class="section" id="sparql-query">
+<h3>SPARQL query<a class="headerlink" href="#sparql-query" title="Permalink to this headline">¶</a></h3>
+<p>BlazeGraph allows named subqueries and uses a different full-text search engine, which means that the template string in <code class="docutils literal notranslate"><span class="pre">app/search/gleaner.py</span></code> should look more like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">      PREFIX schema: &lt;https://schema.org/&gt;</span>
+
+<span class="s2">      SELECT ?total_results ?score ?id ?abstract ?url ?title ?sameAs ?keywords ?license ?temporal_coverage ?spatial_coverage ?author</span>
+
+<span class="s2">      WITH </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">      SELECT</span>
+<span class="s2">          (MAX(?relevance) AS ?score)</span>
+<span class="s2">          ?id</span>
+<span class="s2">          ?url</span>
+<span class="s2">          ?title</span>
+<span class="s2">          ?author</span>
+<span class="s2">          ?license</span>
+<span class="s2">          (GROUP_CONCAT(DISTINCT ?abstract ; separator=&quot;, &quot;) as ?abstract)</span>
+<span class="s2">          (GROUP_CONCAT(DISTINCT ?sameAs ; separator=&quot;, &quot;) as ?sameAs)</span>
+<span class="s2">          (GROUP_CONCAT(DISTINCT ?keywords ; separator=&quot;, &quot;) as ?keywords)</span>
+<span class="s2">          (GROUP_CONCAT(DISTINCT ?temporal_coverage ; separator=&quot;, &quot;) as ?temporal_coverage)</span>
+<span class="s2">          (GROUP_CONCAT(DISTINCT ?spatial_coverage ; separator=&quot;, &quot;) as ?spatial_coverage)</span>
+
+<span class="s2">      </span><span class="se">{{</span><span class="s2"></span>
+
+<span class="s2">          ?s a schema:Dataset  .</span>
+<span class="s2">          ?s schema:name ?title .</span>
+<span class="s2">          </span><span class="se">{{</span><span class="s2"> ?s schema:keywords ?keywords . </span><span class="se">}}</span><span class="s2"> UNION </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">              ?catalog ?relationship ?s .</span>
+<span class="s2">              ?catalog schema:keywords ?keywords .</span>
+<span class="s2">          </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">          ?s schema:description | schema:description/schema:value  ?abstract .</span>
+<span class="s2">          ?s schema:temporalCoverage ?temporal_coverage .</span>
+<span class="s2">          ?s schema:spatialCoverage ?spatial_coverage .</span>
+
+<span class="s2">          OPTIONAL </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">              ?s schema:sameAs ?sameAs .</span>
+<span class="s2">          </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">          OPTIONAL </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">              ?s schema:license ?license .</span>
+<span class="s2">          </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">          OPTIONAL </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">              ?s schema:url ?url .</span>
+<span class="s2">          </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">          OPTIONAL </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">              ?s schema:identifier | schema:identifier/schema:value ?id .</span>
+<span class="s2">              FILTER(ISLITERAL(?id)) .</span>
+<span class="s2">          </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">          OPTIONAL </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">              ?s schema:creator/schema:name ?author .</span>
+<span class="s2">          </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">        </span><span class="si">{</span><span class="n">user_query</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">        BIND(COALESCE(?id, ?s) AS ?id)</span>
+<span class="s2">      </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">      GROUP BY ?id ?url ?title ?license ?author</span>
+<span class="s2">  </span><span class="se">}}</span><span class="s2"> AS %search</span>
+<span class="s2">  </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">      </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">          SELECT (COUNT(*) as ?total_results)</span>
+<span class="s2">          </span><span class="se">{{</span><span class="s2"> INCLUDE %search . </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">      </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">      UNION</span>
+<span class="s2">      </span><span class="se">{{</span><span class="s2"></span>
+<span class="s2">          SELECT ?score ?s ?id ?abstract ?url ?title ?sameAs ?keywords ?license ?temporal_coverage ?spatial_coverage ?author</span>
+<span class="s2">          </span><span class="se">{{</span><span class="s2"> INCLUDE %search . </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">          OFFSET </span><span class="si">{</span><span class="n">page_start</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">          LIMIT </span><span class="si">{</span><span class="n">GleanerSearch</span><span class="o">.</span><span class="n">PAGE_SIZE</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">      </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">  </span><span class="se">}}</span><span class="s2"></span>
+<span class="s2">      ORDER BY DESC(?total_results) DESC(?score)</span>
+<span class="s2">  &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Additionally, the method that builds your full text search should look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_build_text_search_query</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">text</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                ?lit bds:search &#39;&#39;&#39;</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&#39;&#39;&#39; .</span>
+<span class="s2">                ?lit bds:matchAllTerms &quot;false&quot; .</span>
+<span class="s2">                ?lit bds:relevance ?relevance .</span>
+<span class="s2">                ?s ?p ?lit .</span>
+<span class="s2">            &quot;&quot;&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># A blank search in this will give NO results, which seems like</span>
+            <span class="c1"># the opposite of what we want.</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="full-text-search-ranking">
+<h3>Full-text search ranking<a class="headerlink" href="#full-text-search-ranking" title="Permalink to this headline">¶</a></h3>
+<p>Because BlazeGraph uses a different full-text search algorithm than DataONE, you may wish to normalize DataONE’s search scores; all BlazeGraph scores are normalized to be between 0 and 1.</p>
+<p>In order to do this, you might modify <code class="docutils literal notranslate"><span class="pre">app/search/dataone.py</span></code> in the following fashion:</p>
+<p>You can get the maximum score from the DataONE response body like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">max_score</span> <span class="o">=</span> <span class="n">body</span><span class="p">[</span><span class="s1">&#39;maxScore&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>and apply it to the <code class="docutils literal notranslate"><span class="pre">SearchResult</span></code> object like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">SearchResult</span><span class="p">(</span>
+   <span class="n">score</span><span class="o">=</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;score&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_score</span><span class="p">),</span>
+   <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="changes-to-docker-compose-and-helm-charts">
+<h2>Changes to docker-compose and Helm charts<a class="headerlink" href="#changes-to-docker-compose-and-helm-charts" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setting-up-docker-with-blazegraph">
+<h3>Setting up Docker with Blazegraph<a class="headerlink" href="#setting-up-docker-with-blazegraph" title="Permalink to this headline">¶</a></h3>
+<p>Assuming that you’re starting from <strong>this directory</strong>:</p>
+<ol class="simple">
+<li><p>To build and run the web app, Docker needs to know about some environment variables. There are examples ones in <code class="docutils literal notranslate"><span class="pre">dev.env</span></code> - copy it to <code class="docutils literal notranslate"><span class="pre">.env</span></code> and fill in the correct values for you. Save the file and then run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.env</span></code>.</p></li>
+<li><p>Install <a class="reference external" href="https://docker.com">Docker</a></p>
+<ol class="simple">
+<li><p>Also, For windows, click <a class="reference external" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">here</a> to install the WSL 2 (Windows Subsystem for Linux, version 2)</p></li>
+</ol>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">docker</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span> <span class="pre">-d</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">--profile</span> <span class="pre">setup</span> <span class="pre">up</span> <span class="pre">-d</span></code> in order to start all of qthe necessary services and set up Gleaner for indexing.</p></li>
+<li><p>If you want to try queries out on Blazegraph directly, Go to your <a class="reference external" href="http://localhost:9999/blazegraph/#namespaces">local Blazegraph instance</a> and be sure to click ‘Use’ next to the polder namespace.
+NOTE: There is a missing step here. The crawled results need to be written to the triplestore. For now, you can run <code class="docutils literal notranslate"><span class="pre">./write-to-triplestore.sh</span></code>.</p>
+<ol class="simple">
+<li><p>For windows, you need to download <a class="reference external" href="https://www.cygwin.com/setup-x86_64.exe">Cygwin</a>.</p></li>
+<li><p>Change directory to the docker in Cygwin (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">docker</span></code>).</p></li>
+<li><p>Run the <code class="docutils literal notranslate"><span class="pre">./write-to-triplestore.sh</span></code>. to write to triplestore.</p></li>
+</ol>
+</li>
+<li><p>Run the web app: <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">--profile</span> <span class="pre">web</span> <span class="pre">up</span> <span class="pre">-d</span></code></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="differences-in-docker-compose-yaml">
+<h2>Differences in docker-compose.yaml<a class="headerlink" href="#differences-in-docker-compose-yaml" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">triplestore-setup</span></code> and <code class="docutils literal notranslate"><span class="pre">triplestore</span></code> sections will need to be changed to something like the following; the exact images are up to you, of course, but here are the ones that the Polder Federated Search App was using at the time the switch to GraphDB was made:</p>
+<div class="section" id="triplestore-setup">
+<h3>triplestore-setup<a class="headerlink" href="#triplestore-setup" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>triplestore-setup:
+    image: curlimages/curl:7.82.0
+    depends_on:
+    - triplestore
+    command:
+    - curl
+    - -X
+    - POST
+    - -H
+    - &#39;Content-type: application/xml&#39;
+    - --data
+    - &gt;
+      &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+        &lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+        &lt;properties&gt;
+          &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.textIndex&quot;&gt;true&lt;/entry&gt;
+          &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.axiomsClass&quot;&gt;com.bigdata.rdf.axioms.NoAxioms&lt;/entry&gt;
+          &lt;entry key=&quot;com.bigdata.rdf.sail.isolatableIndices&quot;&gt;false&lt;/entry&gt;
+          &lt;entry key=&quot;com.bigdata.rdf.sail.truthMaintenance&quot;&gt;false&lt;/entry&gt;
+          &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.justify&quot;&gt;false&lt;/entry&gt;
+          &lt;entry key=&quot;com.bigdata.rdf.sail.namespace&quot;&gt;polder&lt;/entry&gt;
+          &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.quads&quot;&gt;true&lt;/entry&gt;
+          &lt;entry key=&quot;com.bigdata.namespace.polder.spo.com.bigdata.btree.BTree.branchingFactor&quot;&gt;1024&lt;/entry&gt;
+          &lt;entry key=&quot;com.bigdata.journal.Journal.groupCommit&quot;&gt;false&lt;/entry&gt;
+          &lt;entry key=&quot;com.bigdata.namespace.polder.lex.com.bigdata.btree.BTree.branchingFactor&quot;&gt;400&lt;/entry&gt;
+          &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.geoSpatial&quot;&gt;true&lt;/entry&gt;
+          &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.statementIdentifiers&quot;&gt;false&lt;/entry&gt;
+        &lt;/properties&gt;
+    - &#39;http://triplestore:8080/bigdata/namespace&#39;
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="triplestore">
+<h3>triplestore<a class="headerlink" href="#triplestore" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">triplestore</span><span class="p">:</span>
+    <span class="n">image</span><span class="p">:</span> <span class="n">islandora</span><span class="o">/</span><span class="n">blazegraph</span><span class="p">:</span><span class="mf">1.0.0</span><span class="o">-</span><span class="n">alpha</span><span class="o">-</span><span class="mi">15</span>
+    <span class="n">ports</span><span class="p">:</span>
+      <span class="o">-</span> <span class="mi">9999</span><span class="p">:</span><span class="mi">8080</span>
+    <span class="n">volumes</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">triplestore</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">blazegraph</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="docker-scripts">
+<h3>Docker scripts<a class="headerlink" href="#docker-scripts" title="Permalink to this headline">¶</a></h3>
+<p>The above instructions mention <code class="docutils literal notranslate"><span class="pre">write-to-triplestore.sh</span></code>. There is also <code class="docutils literal notranslate"><span class="pre">clear-triplestore.sh</span></code>. Those are both a little different with BlazeGraph; here is what they will need to look like:</p>
+<div class="section" id="write-to-triplestore">
+<h4>write-to-triplestore<a class="headerlink" href="#write-to-triplestore" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#! /bin/bash
+
+mc config host add minio http://localhost:9000
+for i in $(mc find minio/gleaner/milled); do
+  mc cat $i | curl -X POST -H &#39;Content-Type:text/rdf+n3;charset=utf-8&#39; --data-binary  @- http://localhost:9999/bigdata/namespace/polder/sparql
+done
+</pre></div>
+</div>
+</div>
+<div class="section" id="clear-triplestore">
+<h4>clear-triplestore<a class="headerlink" href="#clear-triplestore" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+<span class="n">curl</span> <span class="o">--</span><span class="n">get</span> <span class="o">-</span><span class="n">X</span> <span class="n">DELETE</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Accept: application/xml&#39;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9999</span><span class="o">/</span><span class="n">bigdata</span><span class="o">/</span><span class="n">namespace</span><span class="o">/</span><span class="n">polder</span><span class="o">/</span><span class="n">sparql</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="helm">
+<h2>Helm<a class="headerlink" href="#helm" title="Permalink to this headline">¶</a></h2>
+<p>In <code class="docutils literal notranslate"><span class="pre">helm/templates/_helpers.tpl</span></code>, your <code class="docutils literal notranslate"><span class="pre">gleaner.triplestore.endpoint</span></code> definition will become</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">triplestore</span><span class="o">-</span><span class="n">svc</span><span class="o">.</span><span class="p">{{</span> <span class="o">.</span><span class="n">Release</span><span class="o">.</span><span class="n">Namespace</span> <span class="p">}}</span><span class="o">.</span><span class="n">svc</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">local</span><span class="p">:{{</span> <span class="o">.</span><span class="n">Values</span><span class="o">.</span><span class="n">triplestore_service</span><span class="o">.</span><span class="n">port</span> <span class="p">}}</span><span class="o">/</span><span class="n">bigdata</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">values-*.yaml</span></code>, the triplestore port is different:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">triplestore_service</span><span class="p">:</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">ClusterIP</span>
+  <span class="n">port</span><span class="p">:</span> <span class="mi">8080</span>
+</pre></div>
+</div>
+<p>And <code class="docutils literal notranslate"><span class="pre">GDB_JAVA_OPTS</span></code> in <code class="docutils literal notranslate"><span class="pre">values-*.yaml</span></code> is replaced by</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">javaXMS</span><span class="p">:</span> <span class="mi">2</span><span class="n">g</span>
+<span class="n">javaXmx</span><span class="p">:</span> <span class="mi">8</span><span class="n">g</span>
+<span class="n">javaOpts</span><span class="p">:</span> <span class="o">-</span><span class="n">Xmx6g</span> <span class="o">-</span><span class="n">Xms2g</span> <span class="o">--</span><span class="n">XX</span><span class="p">:</span><span class="o">+</span><span class="n">UseG1GC</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">GLEANER_ENDPOINT_URL</span></code>, wherever it appears, will be <code class="docutils literal notranslate"><span class="pre">value:</span> <span class="pre">{{</span> <span class="pre">include</span> <span class="pre">&quot;gleaner.triplestore.endpoint&quot;</span> <span class="pre">.</span> <span class="pre">}}namespace/polder/sparql/</span></code></p>
+<div class="section" id="writing-to-the-triplestore">
+<h3>Writing to the triplestore<a class="headerlink" href="#writing-to-the-triplestore" title="Permalink to this headline">¶</a></h3>
+<p>This occurs in a few Helm templates; anything called <code class="docutils literal notranslate"><span class="pre">write-to-triplestore</span></code> will look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> - name: write-to-triplestore
+   image: bitnami/minio-client:2022
+   env:
+   - name: MINIO_CLIENT_ACCESS_KEY
+     valueFrom:
+       secretKeyRef:
+         key:  minioAccessKey
+         name: {{ .Release.Name }}-secrets
+   - name: MINIO_CLIENT_SECRET_KEY
+     valueFrom:
+       secretKeyRef:
+         key:  minioSecretKey
+         name: {{ .Release.Name }}-secrets
+   - name: MINIO_SERVER_HOST
+     value: {{ include &quot;gleaner.s3system.endpoint&quot; . }}
+   - name: MINIO_SERVER_PORT_NUMBER
+     value: &quot;{{ .Values.s3system_service.api_port }}&quot;
+   command:
+   # the first line of the following bash command is supposed to happen automatically, according to
+   # the documentation on docker hub, but it does not.
+   - /bin/bash
+   - -c
+   - &gt;
+     mc config host add minio &quot;http://${MINIO_SERVER_HOST}:${MINIO_SERVER_PORT_NUMBER}&quot; &quot;${MINIO_CLIENT_ACCESS_KEY}&quot; &quot;${MINIO_CLIENT_SECRET_KEY}&quot; &amp;&amp;
+     for i in $(mc find minio/{{ .Values.storageNamespace }}/milled); do
+       mc cat $i | curl -X POST -H &#39;Content-Type:text/rdf+n3&#39; --data-binary  @- {{ include &quot;gleaner.triplestore.endpoint&quot; . }}namespace/{{ .Values.storageNamespace }}/sparql
+     done
+</pre></div>
+</div>
+</div>
+<div class="section" id="clearing-the-triplestore">
+<h3>Clearing the triplestore<a class="headerlink" href="#clearing-the-triplestore" title="Permalink to this headline">¶</a></h3>
+<p>This occurs in a few Helm templates; anything called <code class="docutils literal notranslate"><span class="pre">clear-triplestore</span></code> will look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">clear</span><span class="o">-</span><span class="n">triplestore</span>
+   <span class="n">image</span><span class="p">:</span> <span class="n">curlimages</span><span class="o">/</span><span class="n">curl</span><span class="p">:</span><span class="mf">7.82.0</span>
+   <span class="n">command</span><span class="p">:</span>
+   <span class="o">-</span> <span class="n">curl</span>
+   <span class="o">-</span> <span class="o">--</span><span class="n">get</span>
+   <span class="o">-</span> <span class="o">-</span><span class="n">X</span>
+   <span class="o">-</span> <span class="n">DELETE</span>
+   <span class="o">-</span> <span class="o">-</span><span class="n">H</span>
+   <span class="o">-</span> <span class="s1">&#39;Accept: application/xml&#39;</span>
+   <span class="o">-</span> <span class="p">{{</span> <span class="n">include</span> <span class="s2">&quot;gleaner.triplestore.endpoint&quot;</span> <span class="o">.</span> <span class="p">}}</span><span class="n">namespace</span><span class="o">/</span><span class="p">{{</span> <span class="o">.</span><span class="n">Values</span><span class="o">.</span><span class="n">storageNamespace</span> <span class="p">}}</span><span class="o">/</span><span class="n">sparql</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-up-the-triplestore">
+<h3>Setting up the triplestore<a class="headerlink" href="#setting-up-the-triplestore" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">setup-triplestore</span></code> and <code class="docutils literal notranslate"><span class="pre">wait-for-triplestore-up</span></code> should be, respectively:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- name: wait-for-triplestore-up
+  image: curlimages/curl:7.82.0
+  command:
+  - /bin/sh
+  - -c
+  # yes, this is how it has to work, no I am not happy about it
+  - &gt;
+    set -x;
+    while [ $(curl -sw &#39;%{http_code}&#39; &quot;{{ include &quot;gleaner.triplestore.endpoint&quot; . }}&quot; -o /dev/null) -ne 200 ]; do
+      sleep 15;
+    done
+# Next, create the blazegraph namespace that we want to use for this app
+- name: setup-triplestore
+  image: curlimages/curl:7.82.0
+  command:
+  - curl
+  - -X
+  - POST
+  - -H
+  - &#39;Content-type: application/xml&#39;
+  - --data
+  - &gt;
+    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;
+      &lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+      &lt;properties&gt;
+        &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.textIndex&quot;&gt;true&lt;/entry&gt;
+        &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.axiomsClass&quot;&gt;com.bigdata.rdf.axioms.NoAxioms&lt;/entry&gt;
+        &lt;entry key=&quot;com.bigdata.rdf.sail.isolatableIndices&quot;&gt;false&lt;/entry&gt;
+        &lt;entry key=&quot;com.bigdata.rdf.sail.truthMaintenance&quot;&gt;false&lt;/entry&gt;
+        &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.justify&quot;&gt;false&lt;/entry&gt;
+        &lt;entry key=&quot;com.bigdata.rdf.sail.namespace&quot;&gt;{{ .Values.storageNamespace }}&lt;/entry&gt;
+        &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.quads&quot;&gt;true&lt;/entry&gt;
+        &lt;entry key=&quot;com.bigdata.namespace.{{ .Values.storageNamespace }}.spo.com.bigdata.btree.BTree.branchingFactor&quot;&gt;1024&lt;/entry&gt;
+        &lt;entry key=&quot;com.bigdata.journal.Journal.groupCommit&quot;&gt;false&lt;/entry&gt;
+        &lt;entry key=&quot;com.bigdata.namespace.{{ .Values.storageNamespace }}.lex.com.bigdata.btree.BTree.branchingFactor&quot;&gt;400&lt;/entry&gt;
+        &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.geoSpatial&quot;&gt;true&lt;/entry&gt;
+        &lt;entry key=&quot;com.bigdata.rdf.store.AbstractTripleStore.statementIdentifiers&quot;&gt;false&lt;/entry&gt;
+      &lt;/properties&gt;
+  - &#39;{{- include &quot;gleaner.triplestore.endpoint&quot; . }}namespace&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="more-info.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">References</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="api.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API Endpoints</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Melinda Minch<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

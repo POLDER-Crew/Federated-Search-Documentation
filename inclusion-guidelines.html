@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Including A Repository &#8212; POLDER Federated Search Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Customization" href="customization.html" />
+    <link rel="prev" title="POLDER Federated Search" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">POLDER Federated Search Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   POLDER Federated Search
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Including A Repository
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="customization.html">
+   Customization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="more-info.html">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="blazegraph.html">
+   Using Blazegraph as your triplestore
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Endpoints
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/inclusion-guidelines.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/POLDER-Crew/Federated-Search-Documentation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/POLDER-Crew/Federated-Search-Documentation/issues/new?title=Issue%20on%20page%20%2Finclusion-guidelines.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metadata-fields">
+   Metadata Fields
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#required-metadata-fields">
+     Required Metadata Fields
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optional-metadata-fields">
+     Optional Metadata Fields
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-requirements">
+   Other Requirements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#things-that-are-nice-to-have">
+   Things that are nice to have
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Including A Repository</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metadata-fields">
+   Metadata Fields
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#required-metadata-fields">
+     Required Metadata Fields
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optional-metadata-fields">
+     Optional Metadata Fields
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-requirements">
+   Other Requirements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#things-that-are-nice-to-have">
+   Things that are nice to have
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="including-a-repository">
+<span id="inclusion-guidelines"></span><h1>Including A Repository<a class="headerlink" href="#including-a-repository" title="Permalink to this headline">¶</a></h1>
+<p>In order for a data repository to be included in the POLDER Federated Search, the indexer has to know where its data sets are and be able to retrieve some metadata about them. The Federated Search App takes in <a class="reference external" href="https://json-ld.org/">JSON-LD</a> metadata in order to make data sets searchable via its interface.</p>
+<p>Broadly, if your data repository follows the <a class="reference external" href="https://docs.google.com/document/d/1r4OSRuVBfdJpMbyhjkhghHSeckraFEhxs0f1ld4aGkg">POLDER Schema.org Best Practices</a> (note: this document is still in progress), it will be a good fit for being included in the POLDER Federated Search. These Best Practices are based on the <a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md">science-on-schema.org guidelines</a>, and are summarized below.</p>
+<div class="section" id="metadata-fields">
+<h2>Metadata Fields<a class="headerlink" href="#metadata-fields" title="Permalink to this headline">¶</a></h2>
+<p>Most of the work in getting a repository ready to be included in the POLDER Federated Search is in getting its metadata to a state where the app can consume it and use it in searches. A good thing to remember is that in order to search on a field, that field has to exist - so if you want people to be able to find your data set using, say, a date search, you have to attach temporal coverage information to it.</p>
+<div class="section" id="required-metadata-fields">
+<h3>Required Metadata Fields<a class="headerlink" href="#required-metadata-fields" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#identifier">Identifier</a></p></li>
+<li><p><a class="reference external" href="https://schema.org/name">Title (schema:name)</a></p></li>
+<li><p><a class="reference external" href="https://schema.org/description">Description</a> (can be any length, although Google’s data search requires it to be between 50 and 5000 characters)</p></li>
+<li><p><a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#temporal-coverage">Temporal coverage</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#spatial-coverage">Spatial coverage</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables">Parameters/Variables</a></p></li>
+<li><p><a class="reference external" href="https://schema.org/citation">Citation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#roles-of-people">Creator/Author</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#publisher-provider">Publisher</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#license">Licence</a></p></li>
+</ul>
+</div>
+<div class="section" id="optional-metadata-fields">
+<h3>Optional Metadata Fields<a class="headerlink" href="#optional-metadata-fields" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://schema.org/sameAs">SameAs</a>; if you’re a person who doesn’t like to see duplicate search results, this is for you!</p></li>
+<li><p><a class="reference external" href="https://schema.org/keywords">Keywords</a> are helpful for people doing text searches.</p></li>
+<li><p><a class="reference external" href="https://schema.org/version">Version</a> is not being used right now, but in the future, this can be used to display only the most current version of a dataset. See also: <a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#provenance-relationships">SoSo’s provenance relationships guidelines</a>.</p></li>
+<li><p>Date Published</p></li>
+<li><p><a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#distributions">Distribution (i.e., how to get data)</a> is good for if you have a way to get the data that doesn’t just involve going to the data set’s landing page (i.e. the sitemap url that was indexed in order to get this data set’s metadata)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="other-requirements">
+<h2>Other Requirements<a class="headerlink" href="#other-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Your metadata catalog should provide a <a class="reference external" href="https://github.com/ESIPFed/science-on-schema.org/blob/feature_192_sitemaps/guides/GETTING-STARTED.md#sitemaps">sitemap</a> so that harvesters like Gleaner can know which pages to get information from. Or, if you have a robots.txt file that includes a list of sitemaps, that could work too.</p>
+</div>
+<div class="section" id="things-that-are-nice-to-have">
+<h2>Things that are nice to have<a class="headerlink" href="#things-that-are-nice-to-have" title="Permalink to this headline">¶</a></h2>
+<p>It’s better and faster for indexing if your metadata is included in the data set landing page directly, instead of being injected after the page loads.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">POLDER Federated Search</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="customization.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Customization</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Melinda Minch<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

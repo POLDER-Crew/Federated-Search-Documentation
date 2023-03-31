@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customization &#8212; POLDER Federated Search Documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="References" href="more-info.html" />
+    <link rel="prev" title="Including A Repository" href="inclusion-guidelines.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">POLDER Federated Search Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   POLDER Federated Search
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="inclusion-guidelines.html">
+   Including A Repository
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Customization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="more-info.html">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="blazegraph.html">
+   Using Blazegraph as your triplestore
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api.html">
+   API Endpoints
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/customization.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/POLDER-Crew/Federated-Search-Documentation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/POLDER-Crew/Federated-Search-Documentation/issues/new?title=Issue%20on%20page%20%2Fcustomization.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-your-own-federated-search-app">
+   Making your own Federated Search app
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-development-building-and-running">
+     General development, building and running
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexing">
+     Indexing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#searching">
+     Searching
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#implementing-your-own-search-class">
+       Implementing your own search class
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#user-interface">
+     User Interface
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#maps">
+       Maps
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deployment">
+     Deployment
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Customization</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-your-own-federated-search-app">
+   Making your own Federated Search app
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-development-building-and-running">
+     General development, building and running
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexing">
+     Indexing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#searching">
+     Searching
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#implementing-your-own-search-class">
+       Implementing your own search class
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#user-interface">
+     User Interface
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#maps">
+       Maps
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deployment">
+     Deployment
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="customization">
+<h1>Customization<a class="headerlink" href="#customization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="making-your-own-federated-search-app">
+<h2>Making your own Federated Search app<a class="headerlink" href="#making-your-own-federated-search-app" title="Permalink to this headline">¶</a></h2>
+<p>This app can serve as a template for making your own federated search application. If you want to crawl a set of data repositories and/or query DataONE for results, this might help you get started. You’ll want to modify some areas of the code, though, and this chapter is about where to do that.</p>
+<div class="section" id="general-development-building-and-running">
+<h3>General development, building and running<a class="headerlink" href="#general-development-building-and-running" title="Permalink to this headline">¶</a></h3>
+<p>For the nuts and bolts of setting up a development environment, see the <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search#development">Github README</a>.</p>
+</div>
+<div class="section" id="indexing">
+<h3>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h3>
+<p>Data repositories that are indexed by the Polder Federated Search app are listed in the configuration files for <a class="reference external" href="https://gleaner.io/">Gleaner</a>, which is what is actually doing the indexing here. These files are in two places, because there are two ways to deploy the federated search- with Docker, and with Helm. The Docker config file is <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search/blob/main/docker/gleaner.yaml">here</a>, and the Helm config file is <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search/blob/main/helm/templates/gleaner-config.yaml">here</a>.</p>
+<p>Either way, these files look something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">minio</span><span class="p">:</span>
+  <span class="n">address</span><span class="p">:</span> <span class="n">s3system</span>
+  <span class="n">port</span><span class="p">:</span> <span class="mi">9000</span>
+  <span class="n">ssl</span><span class="p">:</span> <span class="n">false</span>
+  <span class="n">bucket</span><span class="p">:</span> <span class="n">gleaner</span>
+<span class="n">gleaner</span><span class="p">:</span>
+  <span class="n">runid</span><span class="p">:</span> <span class="n">polder</span> <span class="c1"># Run ID used in prov and a few others</span>
+  <span class="n">summon</span><span class="p">:</span> <span class="n">true</span> <span class="c1"># do we want to visit the web sites and pull down the files</span>
+  <span class="n">mill</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">context</span><span class="p">:</span>
+  <span class="n">cache</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">contextmaps</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">prefix</span><span class="p">:</span> <span class="s2">&quot;https://schema.org/&quot;</span>
+  <span class="n">file</span><span class="p">:</span> <span class="s2">&quot;./schemaorg-current-https.jsonld&quot;</span>
+<span class="o">-</span> <span class="n">prefix</span><span class="p">:</span> <span class="s2">&quot;http://schema.org/&quot;</span>
+  <span class="n">file</span><span class="p">:</span> <span class="s2">&quot;./schemaorg-current-https.jsonld&quot;</span>
+<span class="o">-</span> <span class="n">prefix</span><span class="p">:</span> <span class="s2">&quot;http://schema.org/&quot;</span>
+  <span class="n">file</span><span class="p">:</span> <span class="s2">&quot;./schemaorg-current-https.jsonld&quot;</span>
+<span class="n">summoner</span><span class="p">:</span>
+  <span class="n">after</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>      <span class="c1"># &quot;21 May 20 10:00 UTC&quot;</span>
+  <span class="n">mode</span><span class="p">:</span> <span class="n">full</span>  <span class="c1"># full || diff:  If diff compare what we have currently in gleaner to sitemap, get only new, delete missing</span>
+  <span class="n">threads</span><span class="p">:</span> <span class="mi">5</span>
+  <span class="n">delay</span><span class="p">:</span>  <span class="c1"># milliseconds (1000 = 1 second) to delay between calls (will FORCE threads to 1)</span>
+  <span class="n">headless</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">headless</span><span class="p">:</span><span class="mi">9222</span>  <span class="c1"># URL for headless see docs/headless</span>
+<span class="n">millers</span><span class="p">:</span>
+  <span class="n">graph</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">sources</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">nsidc</span>
+  <span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">nsidc</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">sitemap</span><span class="o">.</span><span class="n">xml</span>
+  <span class="n">headless</span><span class="p">:</span> <span class="n">false</span>
+  <span class="n">properName</span><span class="p">:</span> <span class="n">National</span> <span class="n">Snow</span> <span class="ow">and</span> <span class="n">Ice</span> <span class="n">Data</span> <span class="n">Center</span>
+  <span class="n">domain</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">nsidc</span><span class="o">.</span><span class="n">org</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">sitemap</span>
+  <span class="n">active</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">usap</span><span class="o">-</span><span class="n">dc</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">sitemap</span>
+  <span class="n">headless</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">usap</span><span class="o">-</span><span class="n">dc</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">dataset</span><span class="o">/</span><span class="n">sitemap</span><span class="o">.</span><span class="n">xml</span>
+  <span class="n">properName</span><span class="p">:</span> <span class="n">U</span><span class="o">.</span><span class="n">S</span><span class="o">.</span> <span class="n">Antarctic</span> <span class="n">Program</span> <span class="n">Data</span> <span class="n">Center</span>
+  <span class="n">domain</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">usap</span><span class="o">-</span><span class="n">dc</span><span class="o">.</span><span class="n">org</span>
+  <span class="n">active</span><span class="p">:</span> <span class="n">true</span>
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">gem</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">sitemap</span>
+  <span class="n">headless</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">data</span><span class="o">.</span><span class="n">g</span><span class="o">-</span><span class="n">e</span><span class="o">-</span><span class="n">m</span><span class="o">.</span><span class="n">dk</span><span class="o">/</span><span class="n">sitemap</span>
+  <span class="n">properName</span><span class="p">:</span> <span class="n">Greenland</span> <span class="n">Ecosystem</span> <span class="n">Monitoring</span> <span class="n">Database</span>
+  <span class="n">domain</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">data</span><span class="o">.</span><span class="n">g</span><span class="o">-</span><span class="n">e</span><span class="o">-</span><span class="n">m</span><span class="o">.</span><span class="n">dk</span>
+  <span class="n">active</span><span class="p">:</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p>To index other repositories, you are interested in the <em>sources</em> section of that configuration file. Each entry there is one data repository to crawl; here’s what the attributes here mean:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: Your shorthand name for this data repository</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code>: The URL for something that tells you where to find all the data sets; in this case, it’s a sitemap. It can also be the url for the <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> file on that domain, if that file points to a sitemap. You can also use things like a csv, a Google Drive, or a JSON sitegraph.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">headless</span></code>: Whether or not to index it by rendering the page with a headless browser. This is significantly slower than indexing it by fetching the page and parsing the JSON-LD out of it. The reason you may want to use headless indexing is that many data repositories inject the metadata for a data set <em>after</em> its landing page loads, which means that just doing an HTTP <code class="docutils literal notranslate"><span class="pre">GET</span></code> will not get you metadata.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">properName</span></code>: The full name for this data repository</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">domain</span></code>: The top-level domain for this data repository</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: The type of thing that <code class="docutils literal notranslate"><span class="pre">url</span></code> is pointing to, like <code class="docutils literal notranslate"><span class="pre">sitemap</span></code> or <code class="docutils literal notranslate"><span class="pre">robots</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">active</span></code>: Whether to index this repository, or just keep the setting there for future use</p></li>
+</ul>
+</div>
+<div class="section" id="searching">
+<h3>Searching<a class="headerlink" href="#searching" title="Permalink to this headline">¶</a></h3>
+<p>Currently, the POLDER Federated Search App supports making queries against its own <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search/blob/main/app/search/gleaner.py">BlazeGraph</a> instance (which is where all the data you indexed goes) and <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search/blob/main/app/search/dataone.py">DataONE</a>. Note that because this is an app focused on polar data searches, it includes a <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search/blob/main/app/search/dataone.py#L13">latitude filter</a> for the DataONE query, as a very basic way of filtering out irrelevant results. You could change that filter, or leave it out entirely.</p>
+<div class="section" id="implementing-your-own-search-class">
+<h4>Implementing your own search class<a class="headerlink" href="#implementing-your-own-search-class" title="Permalink to this headline">¶</a></h4>
+<p>If you’re querying a source other than BlazeGraph or DataONE, you’ll need to add a search class to do that, and to fetch results. It should be derived from the <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search/blob/main/app/search/search.py#L126">search base class</a>. That class outlines the basic methods that a search class has to include in order to provide results to the search app; it has to be able to make queries that the app supports, and pass back results that are formatted in the way that the app expects. The <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search/tree/main/app/tests/search">search tests</a> are a good place to look and see how such a class might be expected to operate - and if you write your own class, adding tests is always a good idea!</p>
+<p>Once you’ve made your class, you can include it in the code that kicks off searches and displays results to users <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search/blob/main/app/routes.py#L29">here</a>.</p>
+</div>
+</div>
+<div class="section" id="user-interface">
+<h3>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h3>
+<p>Aside from editing verbiage in templates, you might want to customize styles and colors. The <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search/blob/main/app/static/css/_constants.scss">SCSS constants</a> are a great place to start experimenting with that. Don’t forget to assess your color choices for <a class="reference external" href="https://contrastchecker.com/">sufficient contrast</a> so that people with vision impairments can still use the app.</p>
+<p>Note that the UI offers a no-JavaScript experience for searchers on slow internet connections. It’s easy to overlook the templates and pages associated with that, but those will also need to be updated and tested.</p>
+<div class="section" id="maps">
+<h4>Maps<a class="headerlink" href="#maps" title="Permalink to this headline">¶</a></h4>
+<p>One big part of the UI is a map to show the dataset search results, which is built in <a class="reference external" href="https://openlayers.org/">OpenLayers</a>. Since the POLDER Federated Search App is meant for polar research data, it uses polar projections of the Arctic and Antarctic to display search results. Unless you’re building another polar app, it’s highly unlikely that you want this particular functionality. Quite a bit of the <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search/blob/main/app/static/js/map.js">map code</a> is doing the work of building polar-projected views and making the one for Antarctica in particular a useful map that looks nice. There’s also twice as much of it as you may want, because there are two maps - so if you only want one map, in the default projection on the web, don’t panic if you find yourself itching to delete a bunch of stuff. We’ve tried to leave comments telling you which parts you are and aren’t likely to need.</p>
+<p>You may also want to read the <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search/blob/main/app/static/maps/README.md">README</a> in the <code class="docutils literal notranslate"><span class="pre">static/maps</span></code> directory, about map styles and place names in particular, especially if you want to customize a tileset.</p>
+</div>
+</div>
+<div class="section" id="deployment">
+<h3>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h3>
+<p>You’re going to want to run this somewhere! The best place to read about deployment for this app is in the <a class="reference external" href="https://github.com/WDS-ITO/polder-federated-search#deployment">GitHub README</a>.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="inclusion-guidelines.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Including A Repository</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="more-info.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Melinda Minch<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
